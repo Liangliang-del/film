@@ -1,0 +1,102 @@
+#findItem{
+	border: dashed 1px gray;
+	width: 1016px;
+	height: 172px;
+	margin-left: 162px;
+}
+hr{
+ 	border: 1px dashed gray;
+    width: 940px;
+    margin-top: 24px;
+    margin-left: 68px;
+}
+.main .wrap .content_top .events .details{
+    color: #FFF;
+    font-family: 'caviar_dreamsregular';
+    margin-top: 45px;
+    display: block;
+}
+.main .wrap .content_top .events .details h1{
+	font-size: 30px;
+	margin-bottom: -32px;
+}
+.main .wrap .content_top .events .details h4{
+	font-size: 15px;
+	margin-top: 30px;
+}
+.main .wrap .content_top .events .grade{
+	color: #FFF;
+    font-family: 'caviar_dreamsregular';
+    margin: 100px 370px;
+    display: block;
+    font-size: 24px;
+    background: #FF00AE;
+    width: 160px;
+    height: 35px;
+    text-align: center;
+    letter-spacing: 3px;
+    line-height: 34px;
+}
+.main .wrap .content_top .events .buy{
+	color: #FFF;
+    font-family: 'caviar_dreamsregular';
+    margin: -65px 370px;
+    display: block;
+    font-size: 24px;
+    background: #B06A9A;
+    width: 160px;
+    height: 35px;
+    text-align: center;
+    letter-spacing: 5px;
+    line-height: 34px;
+}
+
+.cinemalist h2{
+	color: #FFF;
+    font-family: 'caviar_dreamsregular';
+    margin: 28px 0px;
+    display: block;
+    font-size: 25px;
+}
+.cinemalist{
+	color: gray;
+    font-family: 'caviar_dreamsregular';
+    margin: 28px 161px;
+    display: block;
+    font-size: 16px;
+    height: 40px;
+}
+.cinemalist .cinema a{
+	color: white;
+}
+.cinemalist .cinema a:hover{
+	color:#FF00AE;
+}
+.cinemalist .price{
+	color: #256ff7;
+    font-family: 'caviar_dreamsregular';
+    margin: -20px 737px;
+    display: block;
+    font-size: 16px;
+    height: 40px;
+    width: 800px;
+}
+.cinemalist .price a{
+	color: black;
+    display: block;
+    margin-left: 61px;
+    margin-top: -29px;
+    line-height: 13px;
+    text-decoration: none !important;
+    padding: 11px 31px 21px;
+    background: #fff;
+    border-radius: 70px;
+    width: 64px;
+    height: 0px;
+}
+.cinemalist .price a:hover{
+	color:#FF00AE;
+}
+
+
+
