@@ -1,0 +1,37 @@
+逆向工程通常包括由数据库的表生成 Java 代码 和 通过 Java 代码生成数据库表。而Mybatis 逆向工程是指由数据库表生成 Java 代码。
+Mybaits 需要程序员自己编写 SQL 语句，但是 Mybatis 官方提供逆向工程可以针对
+--单表--自动生成 Mybaits 执行所需要的代码，包括 POJO、Mapper.java、Mapper.xml …。
+之所以强调单表两个字，是因为Mybatis逆向工程生成的Mapper所进行的操作都是针对单表的，
+也许你可能会觉得那这就有点鸡肋了，但是在大型项目中，很少有复杂的多表关联查询，所以作用还是很大的。
+
+
+Mybatis 逆向工程
+一、通过 Eclipse 插件完成 Mybatis 逆向工程
+1. 在线安装 Eclipse 插件
+2. 新建一个 Java Project 项目
+3. 编写配置文件
+4. 使用插件运行
+
+二、通过 Java 代码完成 Mybatis 逆向工程
+1. 新建一个 Java Project 项目
+2. 编写配置文件
+3. 编写生成代码程序
+
+三、通过 Maven 完成 Mybatis 逆向工程
+配置依赖
+	mybatis
+	MyBatis Generator
+	mysql
+	log4j(可选)
+1. 新建一个 Maven Project 项目
+2. 配置 pom.xml 文件
+3. 新建并配置文件 generatorConfig.xml（在src/main/resources目录下）
+	--（可以从该网址复制xml文件代码http://www.mybatis.org/generator/configreference/xmlconfig.html）
+4. 运行 Maven  （操作步骤：选中项目右击 => Run As => Maven build…
+	 =>在 Goals 中输入--mybatis-generator:generate--
+	 => Run =>刷新工程F5）
+
+
+！！！
+版权声明：本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。
+本文链接：https://blog.csdn.net/qq_24598601/article/details/83212819

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!--导入属性配置-->
+    <properties resource="db.properties"></properties>
+
+	<!-- context 是逆向工程的主要配置信息 -->
+    <!-- id：起个名字 -->
+    <!-- targetRuntime：设置生成的文件适用于那个 mybatis 版本 -->
+	<context id="testTables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="false" />
+			 <!-- 是否生成注释代时间戳-->
+            <property name="suppressDate" value="true"></property>
+              <!-- 生成的Java文件的编码 -->
+            <property name="javaFileEncoding" value="utf-8"/>
+		</commentGenerator>
+		
+		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+		<jdbcConnection 
+			driverClass="${driver}" 
+			connectionURL="${url}" 
+			userId="${user}" 
+			password="${password}">
+		</jdbcConnection>
+		<!-- <jdbcConnection driverClass="${oracle_driver}"
+			connectionURL="${oracle_url}" 
+			userId="${oracle_user}"
+			password="${oracle_password}">
+		</jdbcConnection> -->
+
+		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和 
+			NUMERIC 类型解析为java.math.BigDecimal BigDecimal类是不可变的、任意精度的有符号十进制数对象
+			默认情况下的转换规则为：
+
+			如果精度>0或者长度>18，就会使用java.math.BigDecimal
+			如果精度=0并且10<=长度<=18，就会使用java.lang.Long
+			如果精度=0并且5<=长度<=9，就会使用java.lang.Integer
+			如果精度=0并且长度<5，就会使用java.lang.Short
+			-->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- targetPackage：生成的实体类所在的包名（会自动创建） -->
+        <!-- targetProject：生成的实体类所在的位置 -->	
+
+		<!-- targetProject:生成PO类的位置 -->
+		<javaModelGenerator targetPackage="com.ll.po"
+			targetProject="./src/main/java">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+			<!-- 是否清理从数据库中查询出的字符串左右两边的空白字符 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		
+        <!-- targetProject:mapper映射文件生成的位置 -->
+		<sqlMapGenerator targetPackage="com.ll.mapper"  
+			targetProject="./src/main/resources">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+		
+		<!-- targetPackage：mapper接口生成的位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.ll.mapper" 
+			targetProject="./src/main/java">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+		
+		<!-- 指定数据库表 -->
+		<!--tableName:要生成的表名
+       		domainObjectName:生成后的实例名
+	        enableCountByExample:Count语句中加入where条件查询，默认true开启
+	        enableUpdateByExample:Update语句中加入where条件查询，默认true开启
+	        enableDeleteByExample:Delete语句中加入where条件查询，默认true开启
+	        enableSelectByExample:Select多条语句中加入where条件查询，默认true开启
+	        selectByExampleQueryId:Select单个对象语句中加入where条件查询，默认true开启
+		 -->
+		
+		<table tableName="active" >
+			<!-- 常用：
+				property:将所有字段逆向生成为类属性，默认全部
+				ignoreColumn:生成时忽略列字段  -->
+			
+		</table>
+		<table tableName="admin" ></table>
+		<table tableName="cinema" ></table>
+		<table tableName="hall" ></table>
+		<table tableName="user" ></table>
+		<table tableName="comment" ></table>
+		<table tableName="film" ></table>
+		<table tableName="member" ></table>
+		<table tableName="order" ></table>
+		<table tableName="session" ></table>
+	</context>
+</generatorConfiguration>
