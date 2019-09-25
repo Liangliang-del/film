@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+
+<head>
+	<title>个人中心 | Contact </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/font-awesome.min.css" rel="stylesheet" />
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<style type="text/css">
+			div.panle,p.flip{
+				margin: 0;
+				padding: 5px;
+				text-align: center;
+				background: darkgray;
+				border: 1px solid black;
+				width: 70px;
+				margin-left: 295px;
+				margin-top: -120px;
+			}
+			div.panle{
+				height: 120px;
+				display: none;
+				width: 156px;
+			}
+			#a1{
+				font-size: 20px;
+				letter-spacing: 9px;
+				line-height: 43px;
+			}
+			input{
+				font-family: inherit;
+				font-size: inherit;
+				line-height: inherit;
+				color: brown;
+				font-size: 17px;
+			}
+		</style>
+		
+		<script type="text/javascript" src="js/jquery-1.10.2.js" ></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".flip").click(function(){
+					$(".panle").slideToggle("slow");
+				});		
+			});
+		</script>
+</head>
+
+<body>
+	<div class="header">
+		<div class="header_top">
+			<div class="wrap">
+				<div class="logo">
+					<h1 style="font-size: 31px;color: wheat;letter-spacing: 12px;font-style: italic;">米瑞酷影城</h1>
+					<a href="index.html"><img src="images/logo.png" alt="" style="margin-left: 100px;" /></a>
+				</div>
+				<div class="menu">
+					<ul>
+						<li><a href="index.html">首页</a></li>
+						<li><a href="findFilm.html">影城搜索</a></li>
+				    	<li><a href="activity.html">观影活动</a></li>
+				    	<li class="active"><a href="userMes.html">个人中心</a></li>
+				    	<li><a href="#">米酷瑞团队</a></li>
+				    	<li><a href="#">联系我们</a></li>
+						<div class="clear"></div>
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-6" style="margin-top: 41px;margin-left: 250px;height: 500px;width: 876px;">
+		<div class="lt-tabs">
+			<div class="tabbable">
+				<ul class="nav nav-tabs" style="margin-left: 35px;margin-top: 31px;">
+					<li class="active">
+						<a href="#tab11" data-toggle="tab"><i class="fa fa-home"></i>基本信息</a>
+					</li>
+					<li class="" style="margin-left: -104px;margin-top: 63px;">
+						<a href="#tab12" data-toggle="tab"><i class="fa fa-cogs"></i>我的订单</a>
+					</li>
+				</ul>
+				<div class="tab-content" style="margin-left: 132px;margin-top: -87px;">
+					<div class="tab-pane active" id="tab11">
+						<!--基本信息-->
+						<div style="margin-left: 48px;color: aliceblue;">
+							<label id="a1">昵称：</label>
+							<input type="text" /><br />
+							<label id="a1">电话：</label>
+							<input type="text" /><br />
+							<label id="a1">邮箱：</label>
+							<input type="text" /><br />
+							<button style="margin-left: 199px;color: black;">确认修改</button>
+							<!--会员信息-->
+							<div class="panle" style="margin-left: 370px;">
+							<h4>会员有效期</h4>
+							<p>2019/9/20/ - 2019/12/20</p>
+							<a>点我续费</a>
+							</div>
+					<p class="flip">会员信息</p>
+						</div>
+					</div>
+					<div class="tab-pane " id="tab12">
+						<div style="margin-left: 47px;width: 600px;border: 1px double cornflowerblue;">
+			<div style="background: beige;"><span>2018-08-18</span>
+				<label>猫眼订单号：9878879898</label>
+				<a href="#" class="btn btn-danger" style="margin-left: 312px;"><i class="">X</i></a>
+			</div>
+			<div>
+				<div>
+					<img src="images/3.jpg" style="width: 138px;height: 161px;" />
+				</div>
+				
+				<div style="float: left;margin-left: 180px;margin-top: -130px;color: antiquewhite;">
+					<h4>快把我哥带走</h4>
+					<h5>崇尚国际影城</h5>
+					<h5>四号厅 5排5座 5排6座</h5>
+					<h5>8月19日  14：30</h5>
+				</div>
+				<div style="color: aquamarine;float: left;margin-left: 430px;margin-top: -90px;">
+					<span style="margin-right: 58px;margin-left: -26px;">￥40</span><label>已完成</label></div>
+			</div>
+		</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="copy" style="margin-top: 800px;">
+		<p>© 2019 年 10 月 08 日 | Design by C 、O 、Y 、Z | </p>
+	</div>
+</body>
+
+</html>

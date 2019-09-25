@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<head>
+<title>活动页面</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="css/activity_css.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript">
+			
+			$(document).ready(function(){
+				$(".flip").click(function(){
+					$(".panle").slideToggle("show");
+				});
+			});
+</script>
+</head>
+<body>
+      <div class="header">
+		     <div class="header_top">
+		     	<div class="wrap">
+				 <div class="logo">
+				 	<h1 style="font-size: 31px;color: wheat;letter-spacing: 12px;font-style: italic;">米瑞酷影城</h1>
+					 <a href="index.html"><img src="images/logo.png" alt="" style="margin-left: 100px;" /></a>
+					 </div>
+				  <div class="menu">
+					<ul>
+						<li><a href="index.html">首页</a></li>
+						<li><a href="findFilm.html">影城搜索</a></li>
+				    	<li class="active"><a href="activity.html">观影活动</a></li>
+				    	<li><a href="userMes.html">个人中心</a></li>
+				    	<li><a href="#">米酷瑞团队</a></li>
+				    	<li><a href="#">联系我们</a></li>
+				    	<div class="clear"></div>
+				    </ul>				    
+				 </div>
+			     <div class="clear"></div>
+		      </div>		   
+		  </div>
+  </div>
+  <div class="panle">
+		<div id="cinema" onclick="select()">
+			<ul>
+				<li><a href="#">万达影院</a></li>
+				<li><a href="#">万达影院</a></li>
+				<li><a href="#">万达影院</a></li>
+				<li><a href="#">万达影院</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="flip">查看更多影院信息.....</div>
+     <div class="main">
+     	<div class="wrap">
+     	    <div class="content_top">
+     	    	<div class="events">
+	        			<h2>活动/套餐列表</h2>
+	        			<div class="section group">
+							<div class="grid_1_of_3 events_1_of_3">
+							  <div class="event-time">
+								<h4><span>套餐一：大手拉小手</span></h4>
+								  <h4>万达影院</h4>
+							  </div>
+							     <div class="event-img">
+								    <a href="blog.html"><img src="images/444.jpg" alt=""><span>了解详情</span></a>
+							   </div>
+							</div>
+							<div class="details">
+								<h4><span>影院：万达影院</span></h4>
+								<h4><span>套餐一:大手拉小手（团购）</span></h4>
+								  <h4>活动时间：2019-9-22-2019-9-25</h4>
+								  <h4>活动主题：会员优享卡1张 IMAX体验券4张 、IMAX40元券4张、5元可乐券  2张、10元卖品代金券2张、VIP5折券4张 、10元中爆抵用券2张</h4>
+								  <h4>活动详情：A、优享卡享受优惠政策：有效期13个月（即日起至2016年12月10日），（适用于衡阳所有万达影城）观影可享受2D30元，3D35元，IMAX55元，每周三会员日当天全场2D3D一律最低票价25元起。 <br/> 
+											B、IMAX体验券（4张） 市场价：360元（团体专属价：0元）；
+											使用说明：适用于吴中IMAX万达影城，影城试营业期间凭票在有效期内可免费体验IMAX大片  。<br/>
+											C、IMAX特价观影券4张（赠送） 
+											使用说明：IMAX40元特价观影券：用于吴中IMAX万达影城（石湖西路店），在有效期内凭券享受所有IMAX影片40元通看。 <br/>
+										 	D、VIP 5折券4张（赠送）
+											 使用说明：VIP5折券：用于吴中IMAX万达影城，凭券在有效期内凭券享VIP厅5折观影。 <br/>
+											E、10元中份爆米花抵用券2张（赠送） 
+											使用说明：10元中爆抵用券：用于吴中IMAX万达影城（石湖西路店），凭券购中份爆米花抵10元。 <br/>
+ 											 </h4>
+							  </div>
+							  <div><a href="#" class="buy" onclick="buytics()">立即购买</a></div>
+					   </div>
+					   
+	        		</div>
+     	    </div>
+		</div>
+     </div>
+    <div class="copy" style="margin-top: 966px;">
+		<p>© 2019 年 10 月 08 日 | Design by C 、O 、Y 、Z | </p>
+	</div>
+</body>
+</html>

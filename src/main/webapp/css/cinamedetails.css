@@ -1,0 +1,141 @@
+hr{
+ 	border: 1px dashed gray;
+    width: 1003px;
+    margin-top: 24px;
+    margin-left: -8px;
+}
+.main .wrap .content_top .events .details{
+    color: #FFF;
+    font-family: 'caviar_dreamsregular';
+    margin-top: 45px;
+    display: block;
+}
+.main .wrap .content_top .events .details h1{
+	font-size: 30px;
+}
+.main .wrap .content_top .events .details h4{
+	font-size: 15px;
+	margin-top: 30px;
+}
+.films .filmname{
+	color: white;
+    font-family: 'caviar_dreamsregular';
+    margin: -100px 158px;
+    display: block;
+    font-size: 25px;
+}
+.films .grade{
+	color: peru;
+    font-family: 'caviar_dreamsregular';
+    margin: 68px 302px;
+    display: block;
+    font-size: 25px;
+}
+.films .grade span{
+	color: white;
+	font-family: 'caviar_dreamsregular';
+	margin: -22px 38px;
+	display: block;
+	font-size: 15px;
+}
+.time{
+	color: white;
+	font-family: 'caviar_dreamsregular';
+	margin: 73px 143px;
+	display: block;
+	font-size: 15px;
+}
+.type{
+	color: white;
+	font-family: 'caviar_dreamsregular';
+	margin: -94px 262px;
+	display: block;
+	font-size: 15px;
+}
+.actors{
+	color: white;
+	font-family: 'caviar_dreamsregular';
+	margin: 74px 353px;
+	display: block;
+	font-size: 15px;
+}
+.session{
+	color: white;
+	font-family: 'caviar_dreamsregular';
+	margin: -49px 140px;
+	display: block;
+	font-size: 15px;
+}
+.session .date1 a{
+	color: black;
+    display: block;
+    margin-left: 83px;
+    margin-top: -27px;
+    line-height: 13px;
+    text-decoration: none !important;
+    padding: 11px 31px 21px;
+    background: #fff;
+    border-radius: 70px;
+    width: 73px;
+    height: 0px;
+}
+
+.session .date2 a{
+	color: black;
+    display: block;
+    margin-left: 235px;
+    margin-top: -32px;
+    line-height: 13px;
+    text-decoration: none !important;
+    padding: 11px 31px 21px;
+    background: #fff;
+    border-radius: 70px;
+    width: 73px;
+    height: 0px;
+}
+.session .date3 a{
+	color: black;
+    display: block;
+    margin-left: 387px;
+    margin-top: -32px;
+    line-height: 13px;
+    text-decoration: none !important;
+    padding: 11px 31px 21px;
+    background: #fff;
+    border-radius: 70px;
+    width: 73px;
+    height: 0px;
+}
+.session a:hover{
+	color: #FF00AE;
+}
+.hall{
+	color: white;
+    font-family: 'caviar_dreamsregular';
+    margin: 73px 141px;
+    font-size: 15px;
+    
+}
+.hall table{
+	width: 1261px;
+height: 148px;
+text-align: center;
+margin-left: -64px;
+}
+.hall .buy a{
+	color: black;
+    display: block;
+    line-height: 13px;
+    text-decoration: none !important;
+    padding: 11px 31px 21px;
+    background: #fff;
+    border-radius: 70px;
+    width: 60px;
+    height: 0px;
+}
+.hall .buy a:hover{
+	color: #FF00AE;
+}
+
+
+

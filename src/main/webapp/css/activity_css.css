@@ -1,0 +1,58 @@
+.panle{
+	margin: 0;
+	padding: 5px;
+	text-align: center;
+	background: indigo;
+	border: 1px solid black;
+	height: 120px;
+	display: none;	
+}
+.panle #cinema ul{
+	list-style: none;
+	color: white;
+}
+.panle #cinema li{
+	height: 30px;
+	width: 100px;
+	text-align: center;
+    margin: 5px 5px;
+    float: left;
+}
+
+.panle #cinema li a{
+    color: #FFF;
+    font-family: 'caviar_dreamsregular';
+    margin: 15px 15px;
+    display: block;
+}
+.panle #cinema li a:hover{
+	 color:#FF00AE;
+}
+
+.flip{
+	color: white;
+    font-family: 'caviar_dreamsregular';
+    display: block;
+    text-align: center;
+}
+.main .wrap .content_top .events .details{
+	color: #FFF;
+    font-family: 'caviar_dreamsregular';
+    /*margin: 65px 60px;*/
+    margin: 70px 110px;
+    display: block;
+    font-size: 14px;
+}
+.main .wrap .content_top .events .buy{
+	color: #FFF;
+    font-family: 'caviar_dreamsregular';
+    margin: -43px 400px;
+    display: block;
+    font-size: 24px;
+    background: purple;
+    width: 160px;
+    height: 35px;
+    text-align: center;
+    letter-spacing: 5px;
+    line-height: 34px;
+}
