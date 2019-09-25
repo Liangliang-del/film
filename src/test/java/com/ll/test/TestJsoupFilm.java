@@ -15,6 +15,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,70 +26,72 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.ll.biz.IFilmBiz;
 import com.ll.po.Cinema;
 import com.ll.po.Film;
+import com.ll.util.PicUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(value={"classpath:spring-bean.xml"})
 public class TestJsoupFilm {
 
 	@Autowired
-	private IFilmBiz biz;
+	private IFilmBiz filmBizbiz;
 	
 	//添加电影
 	@Test
 	public void testInsertFilm() throws Exception {
-		// 创建httpclient实例
-		CloseableHttpClient httpclient = HttpClients.createDefault();
-		// 创建httpget实例
-		HttpGet httpget = new HttpGet("https://maoyan.com/cinema/9749?poi=6575579");
-
-		// 执行get请求
-		CloseableHttpResponse response = httpclient.execute(httpget);
-		HttpEntity entity = response.getEntity();
-		// 获取返回实体
-		String content = EntityUtils.toString(entity, "utf-8");
-
-		// File input = new File("D://test.html");
-		System.out.println(content);
-		// 解析网页 得到文档对象
-		Document doc = Jsoup.parse(content);
-
 		List<Film> list = new ArrayList<Film>();
-		Film film = new Film();
-		// 获取指定的标签
-		Elements names = doc.select(".cinema-brief-container h3");
-		if (names == null || names.size() <= 0) {
-			System.out.println("第二层爬取失败！！！");
-			return;
+		Film film = null;
+		File input = null;
+		Document doc = null;
+		for (int i = 1; i < 17; i++) {
+			input = new File("D://cinema//"+i+".html");
+			// 解析网页 得到文档对象
+			doc = Jsoup.parse(input, "UTF-8");
+			// 获取指定的<a>
+			
+			film = new Film();
+
+			// 获取指定的标签
+			Elements names = doc.select(".movie-brief-container h3");
+			if (names == null || names.size() <= 0) {
+				System.out.println("第二层爬取失败！！！");
+				return;
+			}
+			String name = names.get(0).text();
+			String type = doc.select(".movie-brief-container ul .ellipsis").get(0).text().split(",")[1];
+			String time = doc.select(".movie-brief-container ul .ellipsis").get(1).text().split("/")[1];
+			String pdate = doc.select(".movie-brief-container ul .ellipsis").get(2).text().substring(0, 10);
+			String desc = doc.select(".module .mod-content .dra").get(0).text();
+			Elements servers = doc.select(".mod-content .cinema-main .cinema-brief-container .feature");
+			StringBuffer sb = new StringBuffer();
+			if(servers != null && servers.size()>0){
+				for (int j = 0; j < servers.size(); j++) {
+					Element c1 = servers.get(j).child(0);
+					Element c2 = servers.get(j).child(1);
+					if(c1 != null && c2 != null){
+						String pre = c1.text();
+						String ne = c2.text();
+						sb.append(pre).append(":").append(ne).append(";");
+					}
+				}
+			}
+
+			String picsrc = doc.select(".cinema-left .avatar-shadow img").get(0).attr("src");
+			System.out.println("picsrc:" + picsrc);
+			String path = "filmImage/cinema/" + new Date().getTime() + "_" + i + ".jpg";
+			String dest = "D://Tomcat//apache-tomcat-8.0.53//webapps//"+path;
+			PicUtil.copyPic("D://cinema//"+picsrc, desc);
+
+			System.out.println("cinema:" + film);
+			list.add(film);
+
+//			pictureResponse.close(); // pictureResponse关闭
+			
+			Thread.sleep(5000);
 		}
-		String name = names.get(0).text();
-		String addr = doc.select(".cinema-brief-container div").get(0).text();
-		String tel = doc.select(".cinema-banner .cinema-main .cinema-brief-container .telphone").get(0).text();
-		Elements servers = doc.select(".cinema-banner .cinema-main .cinema-brief-container .feature");
-		StringBuffer sb = new StringBuffer();
-		for (int j = 0; j < servers.size(); j++) {
-			String pre = servers.get(j).child(0).text();
-			String ne = servers.get(j).child(2).text();
-			sb.append(pre).append(":").append(ne).append(";");
-		}
-
-		String picsrc = doc.select(".cinema-left .avatar-shadow img").get(0).attr("src");
-		System.out.println("picsrc:" + picsrc);
-		HttpGet picturehttpGet = new HttpGet(picsrc);
-		CloseableHttpResponse pictureResponse = httpclient.execute(picturehttpGet);
-		HttpEntity pictureEntity = pictureResponse.getEntity();
-		InputStream inputStream = pictureEntity.getContent();
-		String path = "filmImage//cinema//" + new Date().getTime() + "_" + ".jpg";
-		// 使用 common-io 下载图片到本地，注意图片名不能重复 ✔D:\jsop
-		FileUtils.copyToFile(inputStream, new File("D://Tomcat//apache-tomcat-8.0.53//webapps//" + path));
-
-
-		pictureResponse.close(); // pictureResponse关闭
-
-		response.close(); // response关闭
-		httpclient.close(); // httpClient关闭
 
 		for (Film c : list) {
 			System.out.println(c);
+			filmBizbiz.addFilm(c);
 		}
 
 	}
