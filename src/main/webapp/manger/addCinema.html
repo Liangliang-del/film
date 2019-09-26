@@ -32,6 +32,7 @@ margin:30px auto;
 	background-color:#CCC;
 	border: 1px solid #d3dbde;
 	color: #08c;
+	text-decoration: none;
 }
 .pagenation .active{
 	background-color:gold;
@@ -149,9 +150,9 @@ margin:30px auto;
                                 </table>
                                  <div class="pagenation">
                                      <ul id="pagenation_info">
-                                     	<li><a href="#">上一页</a></li>
+                                     <!-- 	<li><a href="#">上一页</a></li>
                                      	<li><a href="#">1</a></li>
-                                     	<li><a href="#">下一页</a></li>
+                                     	<li><a href="#">下一页</a></li> -->
                                      </ul>
                                  </div>
                             </div>
@@ -200,7 +201,11 @@ margin:30px auto;
             
             function  pageInfo(total){
             	var totalPage=Math.ceil(total/rows);
-            	var str="<li><a href="javascript:findByPage(1)">1</a></li>";
+            	var str='<li id="addActive"><a href="javascript:findByPage(1)">1</a></li>';
+            	for(var i=2;i<=totalPage;i++){
+            		str+='<li id="addActive"><a href="javascript:findByPage('+i+')">'+i+'</a></li>';
+            	}
+            	$('#pagenation_info').html('').append(str); 
             }
             
             function findByPage(pageNum){
@@ -209,12 +214,13 @@ margin:30px auto;
                		//显示影院信息
                		filmInfo(data);
                		//显示分页信息
+               		$('#pagenation_info a').removeClass('active');
                		 $('#pagenation_info li:eq('+(page-1)+') a').addClass('active');
                	})	
             }
             
             function filmInfo(data){
-            	console.log(data);
+            	//console.log(data);
             	var str='';
             	$.each(data,function(index,item){
             		str+='<tr><td>'+item.cId+'</td><td>'+item.cName+'</td>'
