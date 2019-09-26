@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ll.mapper.MemberMapper">
+ <!-- 自己添加 -->
+
+
+
+
+
+
+  <!-- 逆向工程 -->
+
   <resultMap id="BaseResultMap" type="com.ll.po.Member">
     <!--
       WARNING - @mbggenerated
