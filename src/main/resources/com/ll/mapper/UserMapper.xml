@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ll.mapper.UserMapper">
+
+  <!-- 自己添加 -->
+  <insert id="add" parameterType="Menberinfo">
+		<!-- insert into menberInfo values(0, #{nickname}, '', md5(#{pwd}), #{tel}, #{email}, '', now(), 1) -->
+		insert into user (u_id, m_id, u_name, 
+      u_pwd, u_tel, u_email, 
+      u_status, u_pic, code, 
+      u_temp)
+    values (#{uId,jdbcType=INTEGER}, #{mId,jdbcType=INTEGER}, #{uName,jdbcType=VARCHAR}, 
+      #{uPwd,jdbcType=VARCHAR}, #{uTel,jdbcType=VARCHAR}, #{uEmail,jdbcType=VARCHAR}, 
+      #{uStatus,jdbcType=INTEGER}, #{uPic,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
+      #{uTemp,jdbcType=VARCHAR})
+  </insert>
+
+  <select id="login" parameterType="MenberInfo" resultType="Menberinfo">
+	select mno, nickname, realName, tel, email, photo, date_format(regDate,'%Y-%m-%d %H:%i:%s') regDate, status from menberInfo where (nickname=#{nickname} or tel=#{nickname} or email=#{nickname}) and pwd=md5(#{pwd})
+  </select>
+
+
+
+
+
+
+  <!-- 逆向工程 -->
   <resultMap id="BaseResultMap" type="com.ll.po.User">
     <!--
       WARNING - @mbggenerated
