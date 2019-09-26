@@ -137,7 +137,7 @@ margin:30px auto;
                                     <thead>
                                     <!-- 分页栏 -->
                                         <tr>
-                                            <th>影院图片</th>
+                                            <th>编号</th>
                                             <th>影院名称</th>
                                             <th>影院位置</th>
                                             <th>联系电话</th>
@@ -221,6 +221,7 @@ margin:30px auto;
             
             function filmInfo(data){
             	//console.log(data);
+            	console.log('123456');
             	var str='';
             	$.each(data,function(index,item){
             		str+='<tr><td>'+item.cId+'</td><td>'+item.cName+'</td>'
