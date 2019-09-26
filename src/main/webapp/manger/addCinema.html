@@ -16,6 +16,30 @@
     	width: 91%;
 
 		}
+.pagenation{
+height:32px;
+text-align:center;
+margin:30px auto;
+}
+.pagenation li{
+	display:inline-block;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+.pagenation ul li a {
+	float: left;
+	padding: 4px 12px;
+	line-height: 20px;
+	background-color:#CCC;
+	border: 1px solid #d3dbde;
+	color: #08c;
+}
+.pagenation .active{
+	background-color:gold;
+	color:#43a200;
+}
+.pagenation ul li a:hover{
+	color: red;
+}
     </style>
 	<!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
@@ -110,6 +134,7 @@
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
+                                    <!-- 分页栏 -->
                                         <tr>
                                             <th>影院图片</th>
                                             <th>影院名称</th>
@@ -117,33 +142,18 @@
                                             <th>联系电话</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr class="success">
-                                            <td>1</td>
-                                            <td>红旗影院</td>
-                                            <td>衡阳市石鼓区解放路11号</td>
-                                            <td>1231231</td>
-                                        </tr>
-                                        <tr class="info">
-                                            <td>2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr class="warning">
-                                            <td>3</td>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                        <tr class="danger">
-                                            <td>4</td>
-                                            <td>John</td>
-                                            <td>Smith</td>
-                                            <td>@jsmith</td>
-                                        </tr>
+                                     <tbody class="filminfo">
+                                        <!-- 影城信息 -->
+
                                     </tbody>
                                 </table>
+                                 <div class="pagenation">
+                                     <ul id="pagenation_info">
+                                     	<li><a href="#">上一页</a></li>
+                                     	<li><a href="#">1</a></li>
+                                     	<li><a href="#">下一页</a></li>
+                                     </ul>
+                                 </div>
                             </div>
                         </div>
                     </div>
@@ -163,10 +173,56 @@
      <!-- DATA TABLE SCRIPTS -->
     <script src="assets/js/dataTables/jquery.dataTables.js"></script>
     <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
-        <script>
+         <script>
+	        var page=1;
+	        var rows=6;
             $(document).ready(function () {
-                $('#dataTables-example').dataTable();
+                 $('#dataTables-example').dataTable();
+                //显示所有影城
+              /*   $.get("../findCinema",null,function(data){
+                	console.log(data);
+                	var str='';
+                	$.each(data,function(index,item){
+                		str+='<tr><td>'+item.cId+'</td><td>'+item.cName+'</td>'
+                			+'<td>'+item.cAddr+'</td>'
+                			+'<td>'+item.cTel+'</td></tr>';
+                	})
+                	$('.filminfo').html('').append(str); 
+                }) */
+                
+               findByPage(page);
+                
+               //统计数量
+               $.get("../pageTotal",null,function(data){
+            	   pageInfo(data);
+               })
             });
+            
+            function  pageInfo(total){
+            	var totalPage=Math.ceil(total/rows);
+            	var str="<li><a href="javascript:findByPage(1)">1</a></li>";
+            }
+            
+            function findByPage(pageNum){
+            	page=pageNum;
+            	$.get("../findByPage",{page:page,rows:rows},function(data){
+               		//显示影院信息
+               		filmInfo(data);
+               		//显示分页信息
+               		 $('#pagenation_info li:eq('+(page-1)+') a').addClass('active');
+               	})	
+            }
+            
+            function filmInfo(data){
+            	console.log(data);
+            	var str='';
+            	$.each(data,function(index,item){
+            		str+='<tr><td>'+item.cId+'</td><td>'+item.cName+'</td>'
+            			+'<td>'+item.cAddr+'</td>'
+            			+'<td>'+item.cTel+'</td></tr>';
+            	})
+            	$('.filminfo').html('').append(str); 
+            }    
     </script>
          <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
