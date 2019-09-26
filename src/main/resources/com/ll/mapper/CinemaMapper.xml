@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ll.mapper.CinemaMapper">
+	<!-- 分页查询影院 -->
+	<select id="findByPage" parameterType="map" resultType="com.ll.po.Cinema">
+		select c_id,c_name,c_tel,c_addr,c_serve,c_pic,c_temp from cinema limit #{page},#{rows}
+	</select>
+
+	<!-- 计算分页总页数 -->
+	<select id="getTotal" resultType="int" >
+		select count(*) from cinema
+	</select>
+
   <resultMap id="BaseResultMap" type="com.ll.po.Cinema">
     <!--
       WARNING - @mbggenerated
