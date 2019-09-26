@@ -1,6 +1,7 @@
 package com.ll.po;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CommentExample {
@@ -501,6 +502,66 @@ public class CommentExample {
 
         public Criteria andCoContentNotBetween(String value1, String value2) {
             addCriterion("co_content not between", value1, value2, "coContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andCoDateIsNull() {
+            addCriterion("co_date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCoDateIsNotNull() {
+            addCriterion("co_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCoDateEqualTo(Date value) {
+            addCriterion("co_date =", value, "coDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCoDateNotEqualTo(Date value) {
+            addCriterion("co_date <>", value, "coDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCoDateGreaterThan(Date value) {
+            addCriterion("co_date >", value, "coDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCoDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("co_date >=", value, "coDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCoDateLessThan(Date value) {
+            addCriterion("co_date <", value, "coDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCoDateLessThanOrEqualTo(Date value) {
+            addCriterion("co_date <=", value, "coDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCoDateIn(List<Date> values) {
+            addCriterion("co_date in", values, "coDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCoDateNotIn(List<Date> values) {
+            addCriterion("co_date not in", values, "coDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCoDateBetween(Date value1, Date value2) {
+            addCriterion("co_date between", value1, value2, "coDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCoDateNotBetween(Date value1, Date value2) {
+            addCriterion("co_date not between", value1, value2, "coDate");
             return (Criteria) this;
         }
 

@@ -524,6 +524,76 @@ public class ActiveExample {
             return (Criteria) this;
         }
 
+        public Criteria andAPicIsNull() {
+            addCriterion("a_pic is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAPicIsNotNull() {
+            addCriterion("a_pic is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAPicEqualTo(String value) {
+            addCriterion("a_pic =", value, "aPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andAPicNotEqualTo(String value) {
+            addCriterion("a_pic <>", value, "aPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andAPicGreaterThan(String value) {
+            addCriterion("a_pic >", value, "aPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andAPicGreaterThanOrEqualTo(String value) {
+            addCriterion("a_pic >=", value, "aPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andAPicLessThan(String value) {
+            addCriterion("a_pic <", value, "aPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andAPicLessThanOrEqualTo(String value) {
+            addCriterion("a_pic <=", value, "aPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andAPicLike(String value) {
+            addCriterion("a_pic like", value, "aPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andAPicNotLike(String value) {
+            addCriterion("a_pic not like", value, "aPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andAPicIn(List<String> values) {
+            addCriterion("a_pic in", values, "aPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andAPicNotIn(List<String> values) {
+            addCriterion("a_pic not in", values, "aPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andAPicBetween(String value1, String value2) {
+            addCriterion("a_pic between", value1, value2, "aPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andAPicNotBetween(String value1, String value2) {
+            addCriterion("a_pic not between", value1, value2, "aPic");
+            return (Criteria) this;
+        }
+
         public Criteria andATempIsNull() {
             addCriterion("a_temp is null");
             return (Criteria) this;
